@@ -7,12 +7,15 @@ const id: any = process.env.NODE_ENV ?? "development";
 const mode: EnvId = id;
 
 const plugins = [mdx({ jsxImportSource: "brisa" }) as unknown] as Plugin[];
+const useHttps = Number(process.env.TLS) || mode === "production";
 
 const tls: TLSConfig<Modes> = {
-  development: {
-    key: Bun.file("./.config/certs/localhost-key.pem"),
-    cert: Bun.file("./.config/certs/localhost.pem"),
-  },
+  development: useHttps
+    ? {
+        key: Bun.file(process.env.TLS_KEY_PATH),
+        cert: Bun.file(process.env.TLS_CERT_PATH),
+      }
+    : {},
   production: {},
 };
 

@@ -1,20 +1,21 @@
 import { css, cx } from "@/styled-system/css";
 
-const bodyClass_dark = css({
+const _dark = css({
   _dark: {
     bg: "primary",
     color: "white",
   },
 });
 
-const bodyClass_light = css({
+const _light = css({
   _light: {
     bg: "white",
     color: "primary",
   },
 });
 
-const bodyClass_anchors = css({
+// TODO: define this behavior using global styles
+const any_$anchor = css({
   "& > a": {
     _hover: {
       color: "secondary",
@@ -22,4 +23,4 @@ const bodyClass_anchors = css({
   },
 });
 
-export const bodyCss = cx(bodyClass_dark, bodyClass_light, bodyClass_anchors);
+export const bodyCss = cx(_dark, _light, any_$anchor);

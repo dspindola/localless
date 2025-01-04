@@ -2,6 +2,10 @@ import { css } from "@/styled-system/css";
 import { container } from "@/styled-system/patterns";
 
 export default function Home() {
+  const slug = process.env.PUBLIC_APP_TITLE;
+  const local = slug.slice(0, -4);
+  const less = slug.slice(-4);
+  const symbol = "⏎";
   return (
     <a
       href={"/"}
@@ -16,8 +20,16 @@ export default function Home() {
           shadow: "5px -5px 0 var(--colors-secondary)",
           transform: "translateY(10px)",
           transition: "all",
-          transitionDuration: "0.2s",
+          boxPack: "justify",
+          animation: "pulse",
+          animationComposition: "replace",
+          animationFillMode: "none",
+          animationTimeline: "auto",
+          animationDirection: "alternate-reverse",
           bg: "primary",
+          [`& #symbol`]: {
+            direction: "rtl",
+          },
         },
       })}
     >
@@ -35,7 +47,18 @@ export default function Home() {
           fontSmoothing: "subpixel-antialiased",
         })}
       >
-        {process.env.PUBLIC_APP_TITLE}
+        {[local, less, symbol].map((item) => (
+          <div
+            key={item}
+            id={item === symbol ? "symbol" : item}
+            class={css({
+              display: "inline-block",
+              px: 0.5,
+            })}
+          >
+            {item}
+          </div>
+        ))}
       </h1>
     </a>
   );

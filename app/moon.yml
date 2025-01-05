@@ -1,0 +1,16 @@
+type: application
+platform: bun
+language: typescript
+
+tags:
+  - brisa
+  - server-components
+
+tasks:
+  dev:
+    env:
+      PORT: "3000"
+      HOSTNAME: "localhost"
+
+    command: |
+      bun run brisa dev --port=$PORT

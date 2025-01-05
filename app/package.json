@@ -1,0 +1,25 @@
+{
+  "name": "localless",
+  "module": "src/pages/index.tsx",
+  "type": "module",
+  "scripts": {
+    "dev": "brisa dev",
+    "dev:debug": "brisa dev --debug",
+    "build": "brisa build",
+    "start": "brisa start",
+    "prepare": "bun --bun panda codegen"
+  },
+  "dependencies": {
+    "@mdx-js/esbuild": "3.0.1",
+    "@pandacss/dev": "0.47.0",
+    "brisa-pandacss": "0.2.1",
+    "cookie-es": "^1.2.2",
+    "hookable": "^5.5.3",
+    "nanotar": "^0.1.1",
+    "postcss": "8.4.47",
+    "scule": "^1.3.0",
+    "shiki": "^1.26.1",
+    "tsm": "^2.3.0",
+    "ungh": "^0.0.0"
+  }
+}

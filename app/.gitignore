@@ -1,0 +1,14 @@
+build
+node_modules
+out
+.vercel
+
+## Panda
+styled-system
+styled-system-studio
+.env.local
+.config
+.cache
+.vscode
+.playground
+.config/certs
